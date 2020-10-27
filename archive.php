@@ -17,9 +17,14 @@
 
 get_header(); ?>
 
-<div class="main-container">
-	<div class="main-grid">
-		<main class="main-content">
+<div class="kibum-debug columns kibum-margin-bottom">
+	<div class="kibum-white-inside">
+		archive.php
+	</div>
+</div>
+
+<main class="kibum-main-container columns medium-9 kibum-margin-bottom">
+		<div class="kibum-white-inside">
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -44,10 +49,9 @@ get_header(); ?>
 				</nav>
 			<?php endif; ?>
 
-		</main>
-		<?php get_sidebar(); ?>
+		</div>
+	</main>
 
-	</div>
-</div>
+		<?php get_sidebar(); ?>
 
 <?php get_footer();

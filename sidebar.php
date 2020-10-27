@@ -7,6 +7,11 @@
  */
 
 ?>
-<aside class="sidebar">
-	<?php dynamic_sidebar( 'sidebar-widgets' ); ?>
+
+<aside class="kibum-sidebar columns medium-3 kibum-margin-bottom" data-equalizer-watch="top">
+	<div class="kibum-white-inside">
+	<div class="row">
+		<?php dynamic_sidebar( 'sidebar-widgets' ); ?>
+	</div>
+	</div>
 </aside>

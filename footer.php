@@ -9,16 +9,22 @@
  */
 ?>
 
-<footer class="footer-container">
-	<div class="footer-grid">
-		<?php dynamic_sidebar( 'footer-widgets' ); ?>
-	</div>
-</footer>
+<footer class="kibum-footer columns"><div class="kibum-white-darker-inside"><div class="row">
+            <?php dynamic_sidebar( 'footer-widgets' ); ?>
+</div></div></footer>
+
+<!-- END: ltg kibum-main div -->
+</div>
 
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	</div><!-- Close off-canvas content -->
 <?php endif; ?>
 
 <?php wp_footer(); ?>
+
+<script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.24.5'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
 </body>
 </html>

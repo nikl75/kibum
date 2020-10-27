@@ -4,6 +4,10 @@ Template Name: Left Sidebar
 */
 get_header(); ?>
 
+<div class="kibum-debug columns">
+	page-sidebar-left.php
+</div>
+
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 <div class="main-container">
 	<div class="main-grid sidebar-left">

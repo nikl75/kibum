@@ -1,0 +1,493 @@
+// ltg kibum custom stuff
+// ----------------------------
+
+
+
+
+// DEBUG STUFF
+.row {
+	/*border: 1px dashed	#0ff;*/
+}
+.columns {
+	/*border: 1px dashed #a00;*/
+	/*background-color: #eef;*/
+}
+
+.kibum-debug {
+	display:  none;
+	font-size: 2rem;
+	color: #888;
+	//background-color: rgba(0, 0, 0, .2);
+}
+
+// COULD BE BETTER STUFF
+.column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+		float: left!important;
+}
+
+pre {
+	font-size: 0.6rem;
+}
+
+
+
+
+
+// REAL STUFF
+
+
+
+.kibum-outer-row {
+	margin-top: $grid-column-gutter;
+	margin-bottom: $grid-column-gutter;
+	padding: $grid-column-gutter $grid-column-gutter/2;
+	&.kibum-top {
+		margin-top: 0;
+		padding-top: 0;
+	}
+	&.kibum-top, &.kibum-main {
+		// jahresmotiv anpassung
+		background-color: rgba(222, 22, 22, 0.3);
+	}
+}
+.kibum-margin-bottom {
+ 	margin-bottom: $grid-column-gutter;
+ }
+.kibum-white-inside {
+	background-color: #fff;
+	height: 100%;
+	padding: $grid-column-gutter/2;
+}
+
+// jahresmotiv anpassung
+.kibum-white-darker-inside {
+	@extend .kibum-white-inside;
+	background-color: #c5a3d5;
+}
+.kibum-motiv {
+	height: 215px;
+	pointer-events:none;
+	position: relative;
+	@include breakpoint(small only) {
+		height: 360px;
+	}
+	
+	.kibum-motiv-column {
+		position: relative;
+		z-index: 5;
+		
+		margin-top: -160px;
+		margin-bottom: -250px;
+		@include breakpoint(small only) {
+		 	margin-top: -106px;
+		 	margin-bottom: -70px;
+		}
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		height:600px;
+/*		background-image: url(../../../dist/assets/images/corporate/kibum_medallion.png);*/
+		background-position: center center; 
+		background-repeat: no-repeat;
+		background-size: auto 600px;
+		
+		
+	}
+}
+
+
+
+.kibum-main {
+	.kibum-main-container, aside {
+		a{
+			color: $kibum-a-color;
+			&:hover {
+				color: $primary-color
+			}
+		}
+		.kibum-white-inside {
+			/*padding-top: 3rem;*/
+		}
+	}
+}
+nav.site-navigation {
+	a:hover {
+		color: $success-color;
+	}
+	
+	font-family: $kibum-nav-font;
+	font-weight: 600;
+	font-size: 1.3rem;
+	position: relative;
+	z-index: 0;
+	
+	&:hover {
+		z-index: 10;
+	}
+}
+nav#mobile-menu li:last-child {
+	padding-bottom: 2rem;
+}
+
+.kibum-description {
+	font-family: $kibum-nav-font;
+	a{
+		color: $secondary-color;
+		font-size: 1.4rem;
+		line-height: 1rem;
+	}
+	text-align: right;
+}
+.kibum-footer {
+	font-size: 0.85rem;
+	color: $body-font-color;
+	a{
+		color: #000;
+	}
+}
+.kibum-veranstaltungsliste-h {
+	margin: 8rem 0 1rem;
+}
+.kibum-veranstlatung-liste-eintrag {
+/*	margin-bottom: 3rem;*/
+	&:not(:last-child) {
+		border-bottom: 1px solid $global-border-color;	
+		padding-bottom: 1rem;
+		
+	}
+	padding-top: 1rem;
+		.kibum-content, .kibum-image-inside {
+		@include breakpoint(small only) {
+			padding-bottom: 1rem;
+			}
+		}
+	&.kibum-liste-buchausstellung {
+		padding-top: 0;
+		.uhr {
+			margin-bottom: 1rem;
+			font-size: 1.4rem;
+		}
+	}
+	.kibum-image-inside {
+		min-height: 150px;
+		/*background-color: #aaa;*/
+	}
+	.kibum-titel {
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+		font-weight: 600;
+	}
+	.kibum-cat {
+		font-size: 0.8rem;
+		color: $dark-gray;
+		padding-bottom: 0.5rem;
+		ul {
+		  list-style-type: none;
+		  margin: 0;
+		}
+	}
+	.kibum-angaben {
+		font-size: 0.8rem;
+		line-height: 1rem;
+		.kibum-angaben-b01 {
+			@include breakpoint(medium) {
+				margin-bottom: 0.5rem;
+			}		
+		}
+		.kibum-date {
+		color: $dark-gray;
+		}
+		.kibum-time {
+			font-weight: 900;
+		}
+		.kibum-zielgruppe {
+			margin-bottom: 0.5rem;
+		}
+		.kibum-anmeldung {
+			color: $dark-gray;
+		}
+		.kibum-location {
+			&.blautal-center, &.obscura-kino, &.edwin-scharff-museum, &.bibliothek {
+				color:  #39f;
+				font-weight: 600;
+				
+			}
+		}
+	}
+}
+.kibum-gaeste-accordion {
+	h2 {
+		font-size: 1.2rem;
+		margin: 0;
+	}
+	.kibum-gaeste-liste-content {
+		.beschreibung {
+			margin-bottom: 1rem;
+		}
+		.veranstaltungen {
+			.ev-title {
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+.em-booking-form-details {
+	max-width: 100%;
+	padding: 0;
+	input.input {
+		max-width: 100%;
+	}
+	.input-group {
+		display: -webkit-inline-box;
+		display: inline;
+	}
+}
+.event {
+	.kibum-uhr-datum {
+		font-size: 1.5rem;
+		font-weight: 200;
+	}
+	.kibum-cat-sub {
+		ul {
+		  list-style-type: none;
+		  margin: 0;
+		  display: inline-block;
+		  margin: 1rem 0;
+		}
+	}
+	.kibum-zielgruppe {
+		font-weight: 600;
+	}
+	.kibum-ort, .kibum-zielgruppe, .kibum-cat, .kibum-kosten {
+		font-size: 0.8rem;
+		color: #999;
+	}
+}
+
+.kibum-page-content {
+	margin-bottom: 3rem;
+}
+.kibum-buchausstellung-uebersicht {
+	.row {
+		margin-bottom: 1rem;
+	}
+	.kibum-buchausstellungliste-hLTG, .kibum-buchausstellungliste-hLTG-sidebar {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+	.kibum-buchausstellung-liste-eintrag {
+		height: 50px;
+		overflow: hidden;
+		margin-bottom: 0.5rem;
+		.kibum-fplaetze {
+			font-size: 0.8rem;
+			color: $kibum-back-color;
+			
+		}
+	}
+}
+
+.kibum-galerie {
+	.galerie-item {
+		height: 200px;
+		margin-bottom: $grid-column-gutter;
+		.kibum-galerie-wrapper {
+			height: 100%;
+			padding: 1rem;
+			border: 1px solid $global-border-color;
+		}
+		.kibum-galerie-inside {
+			height: 100%;
+			background-position: center center!important;
+			background-size: contain!important;
+			background-repeat: no-repeat!important;
+		}
+	}
+}
+.kibum-mobile-nav {
+	background-color: $dark-nav-color;
+	a{
+		color: $white;
+		&:hover {
+			color: $secondary-color;
+		}
+	}
+}
+
+$ausgebRotation: -10deg;
+.kibum-AUSGEBUCHT{
+	color: $kibum-alert-color!important;
+	
+} 
+.kibum-ABGESAGT {
+	color: darken( $kibum-alert-color, 20% )!important;
+}
+.kibum-AUSGEBUCHT, .kibum-ABGESAGT {
+	-webkit-transform: rotate($ausgebRotation);
+	/* Chrome, Safari, Opera */
+	-ms-transform: rotate($ausgebRotation);
+	/* IE 9 */
+	transform: rotate($ausgebRotation);
+	
+	margin-top: -1rem;
+	font-weight: 900;
+	font-size: 1rem!important;
+	z-index: 100;
+	background-color: rgba(255, 255, 255, .75);
+	padding: 0.3rem;
+	display: inline-box;
+	width: 100px;
+	
+	&.single-event {
+		margin-top: -3rem;
+		font-size: 2.5rem!important;
+	}
+	
+}
+
+.em-booking{
+	padding-bottom: 3rem;
+}	
+.kibum-caption {
+	font-size: 0.8rem;
+	color: $medium-gray;
+}
+
+/* BUCHUNGEN etc */
+.kibum-buchausstellung .kibum-nichtzeigen-feedback {
+	display: none;
+}
+.em-booking-form {
+	.em-booking-form-details {
+		width: 100%;
+	}
+	label {
+		width: 100%;
+		font-size: 0.8rem;
+	}
+	input.input, textarea.input {
+		width: 100%;
+	}
+	input.em-booking-submit {
+		@extend .button;
+		width: 100%;
+	}
+	
+	table.em-tickets  {
+		tbody {
+			border: none;
+		}
+		tr{
+			background-color: #fff;
+		}
+		td, th {
+			padding: 0.3rem 0.4rem 0.3rem 0;
+		}
+		th {
+			font-size: 0.8rem;
+			color: $medium-gray;
+			text-align: left;
+			font-weight: normal;
+		}
+		.g-recaptcha {
+		transform:scale(0.77);
+		-webkit-transform:scale(0.77);
+		transform-origin:0 0;
+		-webkit-transform-origin:0 0;
+			
+		}
+		
+	}
+}
+
+.nav-next {
+	text-align: right;
+}
+.kibum-intern {
+	margin-top: 4rem;
+	label {
+		margin-top: 2rem;
+		font-size: 0.7rem;
+		color: #999;
+	}
+}
+/* AUSDRUCK etc */
+
+@page {
+	margin: 15mm 5mm 15mm;
+}
+@media print {
+	* {		
+		font-size: 95%;
+	}
+	.kibum-margin-bottom {
+		margin-bottom: 10px;
+	}
+	.kibum-top {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+	.kibum-logo-img{
+		height: 50px;
+	}
+	.kibum-description{
+		text-align: left;
+	}
+	.kibum-motiv{
+		/*height: 100%;*/
+		display: none;
+		.kibum-motiv-column {
+			margin: 0;
+			width: 100%;
+			position: inherit;
+			.kibum-motiv-img {
+				padding-left: 2rem;
+				position: inherit;
+				height: 100px;
+				width: auto;
+			}
+		}
+	}
+	.kibum-main {
+		padding-top: 0;
+		margin-top: 0;
+	}
+	ul#menu-main{
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		li{
+			width: 100%;
+			a{
+				display: block;
+				margin: 0rem;
+				padding: 0;
+			}
+		}
+	}
+	.kibum-featured{
+		display: none;
+	}
+	main{
+		height: auto!important;
+	}
+	
+	.event {
+		.kibum-ort, .kibum-zielgruppe, .kibum-cat, .kibum-kosten {
+			color: #999!important;
+		}
+	}
+	.kibum-intern {
+		label {
+			color: #999!important;
+		}
+	}
+	
+	
+
+// andrea fix print für korrekturen
+	.kibum-footer, .site-title-bar, .site-navigation, .kibum-sidebar{
+		display: none!important;
+	}
+}
+

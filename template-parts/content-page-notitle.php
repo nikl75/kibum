@@ -10,23 +10,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
-	<?php $tVerCat = wp_get_post_terms( $post->ID, 'veran-cat-todo' );
-	$tVerCatToDo = '';
-	foreach ($tVerCat as $cat) {
-		$tVerCatToDo .= ' • '.$cat->name; 
-	}
-	?>
-
-	<?php if(is_user_logged_in()): ?>
-	<div class="kibum-intern-todo"><?php echo $tVerCatToDo ?></div>
-	<?php endif; ?>
-	
-
-
-	<header>
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>

@@ -64,27 +64,46 @@
 @import 'util/util';
 @import 'global/colors';
 
+
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:400,600,700|Fira+Sans:200,300,400,500,600,900');
+$kibum-nav-font: 'Barlow Condensed';
+
 // 1. Global
 // ---------
 
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
+
+// jahresmotiv anpassung
+// primary = navigation
+// success = navigation over
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
+  primary: #55aaaa,
+  secondary: #14854e,
+  success: #d04fff,
   warning: #ffae00,
   alert: #cc4b37,
 );
+
+// jahresmotiv anpassung
+$kibum-a-color:#54b3a1;
+$kibum-back-color:#666; // zurückhaltender text
+
+// über customizer
+$kibum-alert-color:#08ffcf; // text
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
-$body-font-color: $black;
-$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+// jahresmotiv anpassung
+$body-font-color: #01624b;
+$global-border-color: #b2e4da;
+
+$body-font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -100,6 +119,7 @@ $global-prototype-breakpoints: false;
 $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
+$print-hrefs:false;
 
 @include add-foundation-colors;
 
@@ -113,7 +133,7 @@ $breakpoints: (
   xlarge: 1200px,
   xxlarge: 1440px,
 );
-$print-breakpoint: large;
+$print-breakpoint: small;
 $breakpoint-classes: (small medium large);
 
 // 3. The Grid
@@ -121,10 +141,7 @@ $breakpoint-classes: (small medium large);
 
 $grid-row-width: $global-width;
 $grid-column-count: 12;
-$grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
-);
+$grid-column-gutter: 30px;
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
 $block-grid-max: 8;
@@ -133,8 +150,8 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
-$header-font-style: normal;
+$header-font-weight: 600;
+$header-font-style: bold;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
@@ -231,7 +248,7 @@ $accordion-item-color: $primary-color;
 $accordion-item-background-hover: $light-gray;
 $accordion-item-padding: 1.25rem 1rem;
 $accordion-content-background: $white;
-$accordion-content-border: 1px solid $light-gray;
+$accordion-content-border: 1px solid $global-border-color;
 $accordion-content-color: $body-font-color;
 $accordion-content-padding: 1rem;
 
@@ -392,13 +409,13 @@ $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-arrow-padding: 1.5rem;
 $dropdownmenu-min-width: 200px;
-$dropdownmenu-background: null;
-$dropdownmenu-submenu-background: $white;
+$dropdownmenu-background: $white;
+$dropdownmenu-submenu-background: $dropdownmenu-background;
 $dropdownmenu-padding: $global-menu-padding;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
 $dropdownmenu-border: 1px solid $medium-gray;
-$dropdown-menu-item-color-active: get-color(primary);
+$dropdown-menu-item-color-active: $light-gray;
 $dropdown-menu-item-background-active: transparent;
 
 // 19. Flexbox Utilities
@@ -847,8 +864,8 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-padding: 0;
+$topbar-background: $dark-nav-color;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
