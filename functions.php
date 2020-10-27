@@ -57,3 +57,4 @@ require_once( 'library/responsive-images.php' );
 
 /** custom kibum functions */
 require_once( 'functions_kibum.php' );
+require_once( 'functions_kibum_programm.php' );

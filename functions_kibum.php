@@ -24,8 +24,7 @@ function my_single_template( $template )
             $templates[] = $path . 'single-cat-' . $category->term_id . '.php';
         } //endforeach
     } //endif $categories
-    
-    
+        
     // Get the post terms (custom categories of type event-categories)
     $terms = get_the_terms( $post->ID, 'event-categories');
 
@@ -43,8 +42,6 @@ function my_single_template( $template )
  	    $templates[] = $path . 'single-' . $post->post_type . '-' . $post->post_name . '.php';
  	    $templates[] = $path . 'single-' . $post->post_type . '.php';
  	}
- 
-        
 
     // Set our fallback templates
     $templates[] = $path . 'single.php';
@@ -119,15 +116,6 @@ function my_post_gallery($output, $attr) {
 add_filter('post_gallery', 'my_post_gallery', 10, 2);
 
 
-register_default_headers( array(
-    'default-image' => array(
-        'url'           => get_template_directory_uri() . '/dist/assets/images/corporate/jbu-default-header-1907.png',
-        'thumbnail_url' => get_template_directory_uri() . '/dist/assets/images/corporate/jbu-default-header-1907.png',
-        'description'   => __( 'Default Header Image', 'textdomain' )
-    ),
-) );
-
-
 function ltg_customize_register( $wp_customize ) {
 
 	$wp_customize->remove_control( 'background_color' );
@@ -188,13 +176,41 @@ function ltg_customize_register( $wp_customize ) {
             )
         )
     );
+
+    $wp_customize->add_setting(
+        'footer_color_setting',
+        array(
+            'default'    => '#DDD',
+            'type'       => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport'  => 'refresh'
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'footer_color_control',
+            array(
+                'label'        => 'Fuß Farbe',
+                'section'      => 'colors',
+                'settings'     => 'footer_color_setting',
+                'palette'      => array(
+                    'rgb(222, 22, 22)',
+                    'rgb(105, 221, 23)',
+                    'rgb( 55, 55, 55)',
+                )
+            )
+        )
+    );
+
 }
 add_action( 'customize_register', 'ltg_customize_register' );
 
 
 function ltg_customizer_head_styles() {
 	$frame_alpha_color = get_theme_mod( 'frame_alpha_color_setting' ); 
-	$body_font_color = get_theme_mod( 'font_color_setting' ); 
+    $body_font_color = get_theme_mod( 'font_color_setting' ); 
+    $footer_color = get_theme_mod('footer_color_setting');
 	
 	?> <style id="ltg_customizer_color" type="text/css"> <?php
 	
@@ -212,7 +228,17 @@ function ltg_customizer_head_styles() {
 			color: <?php echo $body_font_color; ?>;
 		}
 	<?php
-	endif;
+    endif;
+ 
+    if ( $footer_color != '' ) :
+    ?>
+        footer  .kibum-white-darker-inside {
+            background-color: <?php echo $footer_color; ?>;
+        }
+    <?php
+    endif;
+
+   
 
 	?> </style> <?php
 }
@@ -229,7 +255,7 @@ function ltg_theme_setup() {
 	add_theme_support( 'align-wide' );
 	
 	// custom header image
-	$defaults = array(
+	$defaults_header = array(
 	    'default-image' 			 => get_template_directory_uri() . '/dist/assets/images/corporate/kibum_medallion.png',
 		'width'					 => 700,
 		'height'				 => 620,
@@ -244,10 +270,10 @@ function ltg_theme_setup() {
 	    'video'                  => false,
 	    'video-active-callback'  => 'is_front_page',
 	);
-	add_theme_support( 'custom-header', $defaults );
+	add_theme_support( 'custom-header', $defaults_header );
 	
 	// custom background image
-	$defaults = array(
+	$defaults_bg = array(
 		'default-color'          => '#888',
 		'default-image'          => get_template_directory_uri() . '/dist/assets/images/corporate/kibum_hintergrund.jpg',
 		'default-repeat'         => 'no-repeat',
@@ -259,10 +285,17 @@ function ltg_theme_setup() {
 		'admin-head-callback'    => '',
 		'admin-preview-callback' => 'true'
 	);
-	add_theme_support( 'custom-background', $defaults );
-	
-	
-	
+    add_theme_support( 'custom-background', $defaults_bg );
+    
+    $defaults_logo = array(
+        'height'      => 200,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+        'unlink-homepage-logo' => true,
+    );
+    add_theme_support( 'custom-logo', $defaults_logo );
 }
 add_action( 'after_setup_theme', 'ltg_theme_setup', 100 );
 

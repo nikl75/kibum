@@ -29,7 +29,16 @@
 		<div class="kibum-white-inside">
 			<div class="row">
 			<div class="columns medium-3">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="kibum-logo-img" src="<?php echo get_theme_root_uri()."/".get_template(); ?>/dist/assets/images/corporate/kibum_logo@2x.png" alt="kibum logo" height="50px" /></a>
+				<?php 	if ( function_exists( 'the_custom_logo' ) && has_custom_logo()) {
+							the_custom_logo();
+						} else {
+							echo '
+								<a href="'. esc_url( home_url( '/' ) ) .'" rel="home">
+								<img class="kibum-logo-img" src="'. 
+								 get_theme_root_uri()."/".get_template() .'/dist/assets/images/corporate/kibum_logo.png" alt="kibum logo" height="50px" /></a>
+								';
+						} ?>
+			
 			</div>
 			<div class="columns medium-4 medium-offset-5 kibum-description">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo html_entity_decode(get_bloginfo( 'description' )); ?></a>

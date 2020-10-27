@@ -179,12 +179,6 @@ get_header(); ?>
 				<label>Freie Plätze: </label><?php echo $EM_Event->output('#_AVAILABLESPACES') ?><br/>
 				</div>
 				<?php endif; ?>
-				
-				
-				
-				
-				
-				
 			</div>
 		</main>
 					
@@ -202,7 +196,10 @@ get_header(); ?>
 							<?php if(get_field("kibum_a_ohne_ticket", $EM_Event->post_id)) :?>
 								<div class="kibum-fplaetze single-event "><?php echo get_field("kibum_text_event_a_ohne_ticket", $EM_Event->post_id) ?></div>
 							<?php else : ?>
-								<div class="kibum-fplaetze single-event kibum-<?php echo $tEventSpaces; ?>">Bitte jede Klasse einzeln anmelden. <br/><?php echo $tEventSpaces; ?></div>
+								<?php if(get_field("kibum_buchung_anweisung", $EM_Event->post_id)) :?>
+									<div class="kibum-buchung-anweisung single-event "><?php echo get_field("kibum_buchung_anweisung", $EM_Event->post_id) ?></div>
+								<?php endif; ?>
+								<div class="kibum-fplaetze single-event kibum-<?php echo $tEventSpaces; ?>"><?php echo $tEventSpaces; ?></div>
 								<?php echo $EM_Event->output('#_BOOKINGFORM');?>
 							<?php endif; ?>
 						<?php else : ?>

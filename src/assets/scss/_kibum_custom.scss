@@ -148,7 +148,7 @@ nav#mobile-menu li:last-child {
 .kibum-veranstaltungsliste-h {
 	margin: 8rem 0 1rem;
 }
-.kibum-veranstlatung-liste-eintrag {
+.kibum-veranstaltung-liste-eintrag {
 /*	margin-bottom: 3rem;*/
 	&:not(:last-child) {
 		border-bottom: 1px solid $global-border-color;	
@@ -263,6 +263,10 @@ nav#mobile-menu li:last-child {
 		font-size: 0.8rem;
 		color: #999;
 	}
+
+}
+.kibum-buchung-anweisung{
+	margin-bottom: 1rem;
 }
 
 .kibum-page-content {
